@@ -22,12 +22,20 @@ void initialize_list(list* l)
 void push_front(list* l, node* p)
 {
 	// ToDo: ここにコードを追加
+	if (l == NULL || p == NULL)return;
+			p->pNext = l->header;
+			l->header = p;
 }
 
 // pの次のノードを削除
 void remove_next(list* l, node* p)
 {
 	// ToDo: ここにコードを追加
+	if (l == NULL || p == NULL || p->pNext == NULL)return;
+	node* n = p->pNext;
+		p->pNext = n->pNext;
+		n->pNext = NULL;
+		free(n);
 }
 
 
